@@ -2,7 +2,9 @@ const thumbWar = require('../thumb-war')
 const utils = require('../utils')
 
 test('returns winner', () => {
-  jest.spyOn(utils, 'getWinner')
+  //with jest.spyOn(obj, 'methodCall') we are no longer reqruied to keep
+  //track of original implementation as it restores it.
+  jest.spyOn(utils, 'getWinner') 
   utils.getWinner.mockImplementation((p1, p2) => p1)
 
   const winner = thumbWar('Kent C. Dodds', 'Ken Wheeler')
@@ -13,5 +15,5 @@ test('returns winner', () => {
   ])
 
   // cleanup
-  utils.getWinner.mockRestore()
+  utils.getWinner.mockRestore() //spyOn replaces it with empty mock function 
 })
