@@ -15,6 +15,6 @@ test('returns winner', () => {
     ['Kent C. Dodds', 'Ken Wheeler']
   ])
 
-  // cleanup
+  // cleanup && reset ur mock fun()
   utilsMock.getWinner.mockReset()
 })
